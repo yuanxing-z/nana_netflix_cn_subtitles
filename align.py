@@ -4,13 +4,13 @@ import pysubs2
 
 def align_subtitles_for_episode(episode_number, en_folder_path, cn_folder_path, output_folder_path):
     # Format the file names based on episode number
-    en_file_name = f'NANA.S01E{episode_number:02d}.WEBRip.Netflix.en.srt'
+    en_file_name = f'NANA.S01E{episode_number:02d}.WEBRip.Netflix.ja[cc].srt'
     cn_file_name = f'NANA.2006.DVDrip.EP{episode_number:02d}.WMV9.AC3-CalChi.srt'
 
     # Construct the full paths to the files
     en_file_path = os.path.join(en_folder_path, en_file_name)
     cn_file_path = os.path.join(cn_folder_path, cn_file_name)
-    output_file_path = os.path.join(output_folder_path, en_file_name)  # Save using English filename format
+    output_file_path = os.path.join(output_folder_path, cn_file_name)  # Save using English filename format
 
     # Load the subtitle files
     eng_subs = pysubs2.load(en_file_path, encoding="utf-8")
@@ -55,8 +55,8 @@ def process_all_episodes(start_ep, end_ep, en_folder_path, cn_folder_path, outpu
 
 
 # Specify the folders and range of episodes
-en_folder_path = 'nf_downloaded_srt_en'
+en_folder_path = 'nf_downloaded_srt_jp'
 cn_folder_path = 'simplified_cn_srt'
-output_folder_path = 'aligned_subtitles_output'
+output_folder_path = 'aligned_jp'
 
 process_all_episodes(11, 47, en_folder_path, cn_folder_path, output_folder_path)
